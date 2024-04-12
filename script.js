@@ -3,7 +3,7 @@ let boardSize = 8;
 let cellSize;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(700, 700);
     cellSize = width / boardSize;
     // Create 16 random pawns
     for (let i = 0; i < 16; i++) {
@@ -16,7 +16,7 @@ function setup() {
             objectColor: color,
             display: function () {
                 fill(this.objectColor);
-                ellipse(this.objectX, this.objectY, 20, 20); // Draw the pawn as a circle for simplicity
+                ellipse(this.objectX, this.objectY, 70, 70); // Draw the pawn as a circle for simplicity
             }
         });
     }
