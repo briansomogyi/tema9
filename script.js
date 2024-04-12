@@ -9,7 +9,7 @@ function setup() {
     for (let i = 0; i < 16; i++) {
         let x = floor(random(boardSize)) * cellSize + cellSize / 2;
         let y = floor(random(boardSize)) * cellSize + cellSize / 2;
-        let color = (i < 8) ? 'white' : 'black'; // First 8 pawns are white, rest are black
+        let color = (i < 8) ? 'white' : 'gray'; // First 8 pawns are white, rest are black
         let eyeColor = (i < 8) ? 'black' : 'white'; // We draw high contrast eyes and mouth
         pawns.push({
             objectX: x,
