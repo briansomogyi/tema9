@@ -10,13 +10,19 @@ function setup() {
         let x = floor(random(boardSize)) * cellSize + cellSize / 2;
         let y = floor(random(boardSize)) * cellSize + cellSize / 2;
         let color = (i < 8) ? 'white' : 'black'; // First 8 pawns are white, rest are black
+        let eyeColor = (i < 8) ? 'black' : 'white'; // We draw high contrast eyes and mouth
         pawns.push({
             objectX: x,
             objectY: y,
             objectColor: color,
+            objectEyeColor: eyeColor,
             display: function () {
                 fill(this.objectColor);
                 ellipse(this.objectX, this.objectY, 70, 70); // Draw the pawn as a circle for simplicity
+                fill(this.objectEyeColor);
+                ellipse(this.objectX - 20, this.objectY - 20, 10, 10); // Draw the left eye
+                ellipse(this.objectX + 20, this.objectY - 20, 10, 10); // Draw the right eye
+                arc(this.objectX, this.objectY + 20, 20, 20, 0, Math.PI, CHORD); // Draw the mouth
             }
         });
     }
