@@ -1,17 +1,3 @@
-// Define a Pawn class
-class Pawn {
-    constructor(x, y, color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
-    }
-
-    display() {
-        fill(this.color);
-        ellipse(this.x, this.y, 20, 20); // Draw the pawn as a circle for simplicity
-    }
-}
-
 let pawns = [];
 let boardSize = 8;
 let cellSize;
@@ -24,7 +10,15 @@ function setup() {
         let x = floor(random(boardSize)) * cellSize + cellSize / 2;
         let y = floor(random(boardSize)) * cellSize + cellSize / 2;
         let color = (i < 8) ? 'white' : 'black'; // First 8 pawns are white, rest are black
-        pawns.push(new Pawn(x, y, color));
+        pawns.push({
+            objectX: x,
+            objectY: y,
+            objectColor: color,
+            display: function () {
+                fill(this.objectColor);
+                ellipse(this.objectX, this.objectY, 20, 20); // Draw the pawn as a circle for simplicity
+            }
+        });
     }
 }
 
